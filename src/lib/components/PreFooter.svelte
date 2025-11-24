@@ -68,7 +68,7 @@
     style="z-index:-1"
 />
 
-<div class="web-u-row-gap-80 relative grid gap-8 md:grid-cols-2">
+<div class="web-u-row-gap-80 relative grid gap-8 lg:grid-cols-2">
     <section class="web-hero flex items-center justify-center gap-y-8">
         <h2 class="text-display font-aeonik-pro text-primary max-w-[500px] text-center">
             Start building with Appwrite today
@@ -83,7 +83,7 @@
         </Button>
     </section>
     <section
-        class="web-card is-transparent has-border-gradient web-u-max-inline-width-584-mobile web-mx-auto-mobile web-u-inline-width-100-percent-mobile p-8!"
+        class="web-card is-transparent has-border-gradient web-u-max-inline-width-584-mobile web-mx-auto-mobile web-u-inline-width-100-percent-mobile mx-auto p-8! lg:mx-0"
     >
         <header class="web-strip-plans-header">
             <div class="web-strip-plans-header-wrapper web-u-row-gap-24">
@@ -94,7 +94,9 @@
         <ul class="web-strip-plans -mt-8">
             {#each visiblePlans as plan}
                 <li class="web-strip-plans-item web-strip-plans-container-query">
-                    <div class="place-item-end grid grid-cols-1 gap-6 md:grid-cols-3">
+                    <div
+                        class="place-item-end grid grid-cols-1 gap-6 md:grid-cols-3 xl:grid-cols-3"
+                    >
                         <div class="flex flex-col">
                             <div class="flex gap-3">
                                 <h4 class="title text-description">{plan.name}</h4>
@@ -122,7 +124,7 @@
                             href={plan.buttonLink}
                             event={plan.eventName}
                             variant={plan.buttonVariant}
-                            class="w-full! flex-3 self-end md:w-fit"
+                            class="w-full! flex-3 self-end md:w-fit xl:w-fit"
                         >
                             <span class="text" style:padding-inline="0.5rem">{plan.buttonText}</span
                             >
@@ -137,6 +139,23 @@
 <style lang="scss">
     .web-strip-plans-info {
         flex-basis: 5rem !important;
+    }
+
+    @media (min-width: 1024px) and (max-width: 1279px) {
+        .web-strip-plans-item .grid {
+            grid-template-columns: auto 1fr;
+            grid-template-rows: auto auto;
+        }
+
+        .web-strip-plans-item .grid > :last-child {
+            grid-column: 1 / -1;
+            justify-self: end;
+        }
+
+        .web-strip-plans-info {
+            font-size: 1rem;
+            line-height: 1.5rem;
+        }
     }
 
     @media (min-width: 1024px) and (max-width: 1224px) {
